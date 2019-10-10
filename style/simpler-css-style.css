@@ -1,0 +1,44 @@
+#site-title {
+	color: #000000;
+	margin: -5px;
+	margin-right: 0px;
+	text-align: center;
+	padding: 1.656em 0 0;
+	font-size: 40px;
+	font-weight: bold;
+}
+#site-description {
+	color: #000000;
+	font-size: 40px;
+	font-weight: bold;
+	margin: 3px 0 15px;
+	text-align: center;
+}
+#branding #searchform {
+	display: none;
+}
+#access ul {
+	font-size: 16px;
+	font-weight: bold;
+	list-style: none;
+}
+#content {
+	width: 75%;
+}
+.one-column #page {
+	max-width: 1000px;
+}
+#access {
+	float: inherit;
+	margin: 0 auto 15px;
+	float: left;
+	margin: 25px auto auto auto;
+}
+#site-title a {
+	color: #000000;
+	font-size: 40px;
+	font-weight: bold;
+	line-height: 40px;
+	text-decoration: none;
+	font-family: Arial;
+}
