@@ -208,11 +208,14 @@
         var chart = nv.models.discreteBarChart()
             .x(function(d) { return d.label })
             .y(function(d) { return d.value })
-            .staggerLabels(true)
+            //.staggerLabels(true)
             //.staggerLabels(historicalBarChart[0].values.length > 8)
-            .showValues(true)
+            //.showValues(true)
             .duration(250)
             ;
+
+        chart.xAxis.rotateLabels(90);
+        chart.margin({bottom: 100});
 
         d3.select('#chart1 svg')
             .datum(historicalBarChart1)
