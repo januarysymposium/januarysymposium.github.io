@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="script/nv.d3.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+    <script src="script/nv.d3.js"></script>
+
+    <style>
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+        }
+        html, body, #chart1, svg {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+
+
+
+<div class = "container" style = "margin: 50 150 50 150;">
+
+<div id="chart2" style = "height: 500px; width:100%;">
+    <svg></svg>
+</div>
+
+</div>
+<script>
+
+    historicalBarChart2 = [
+        {
+            key: "Child Poverty",
+            values: [
+                {
+                    "label" : "China" ,
+                    "value" : 33.1
+                } ,
+                {
+                    "label" : "South Africa" ,
+                    "value" : 32
+                } ,
+                {
+                    "label" : "Brazil" ,
+                    "value" : 30.1
+                } ,
+                {
+                    "label" : "Costa Rica" ,
+                    "value" : 27.3
+                } ,
+                {
+                    "label" : "Turkey" ,
+                    "value" : 25.3
+                } ,
+                {
+                    "label" : "Israel" ,
+                    "value" : 23.7
+                } ,
+                {
+                    "label" : "India" ,
+                    "value" : 23.6
+                } ,
+                {
+                    "label" : "Spain" ,
+                    "value" : 22.0
+                } ,
+                {
+                    "label" : "Chile" ,
+                    "value" : 21.5
+                } ,
+                {
+                    "label" : "US" ,
+                    "value" : 21.2
+                } ,
+                {
+                    "label" : "Mexico" ,
+                    "value" : 19.8
+                } ,
+                {
+                    "label" : "Russia" ,
+                    "value" : 19.6
+                } ,
+                {
+                    "label" : "Lithuania" ,
+                    "value" : 17.7
+                } ,
+                {
+                    "label" : "Greece" ,
+                    "value" : 17.6
+                } ,
+                {
+                    "label" : "Italy" ,
+                    "value" : 17.3
+                } ,
+                {
+                    "label" : "Portugal" ,
+                    "value" : 15.5
+                } ,
+                {
+                    "label" : "Korea" ,
+                    "value" : 14.5
+                } ,
+                {
+                    "label" : "New Zealand" ,
+                    "value" : 14.1
+                } ,
+                {
+                    "label" : "Slovak Republic" ,
+                    "value" : 14.0
+                } ,
+                {
+                    "label" : "Japan" ,
+                    "value" : 13.9
+                } ,
+                {
+                    "label" : "Latvia" ,
+                    "value" : 13.2
+                } ,
+                {
+                    "label" : "Luxembourg" ,
+                    "value" : 13.0
+                } ,
+                {
+                    "label" : "UK" ,
+                    "value" : 12.9
+                } ,
+                { 
+                    "label" : "Australia" ,
+                    "value" : 12.5
+                } ,
+                {
+                    "label" : "Germany" ,
+                    "value" : 12.3
+                } ,
+                {
+                    "label" : "Belgium" ,
+                    "value" : 12.3
+                } ,
+                {
+                    "label" : "Canada" ,
+                    "value" : 11.6
+                } ,
+                {
+                    "label" : "France" ,
+                    "value" : 11.5
+                } ,
+                {
+                    "label" : "Austria" ,
+                    "value" : 11.5
+                } ,
+                {
+                    "label" : "Netherlands" ,
+                    "value" : 10.9
+                } ,
+                {
+                    "label" : "Ireland" ,
+                    "value" : 10.0
+                } ,
+                {
+                    "label" : "Estonia" ,
+                    "value" : 9.6
+                } ,
+                {
+                    "label" : "Switzerland" ,
+                    "value" : 9.5
+                } ,
+                {
+                    "label" : "Sweden" ,
+                    "value" : 9.3
+                } ,
+                {
+                    "label" : "Poland" ,
+                    "value" : 9.3
+                } ,
+                {
+                    "label" : "Czech Republic" ,
+                    "value" : 8.5
+                } ,
+                {
+                    "label" : "Norway" ,
+                    "value" : 8.0
+                } ,
+                {
+                    "label" : "Hungary" ,
+                    "value" : 7.7
+                } ,
+                {
+                    "label" : "Slovenia" ,
+                    "value" : 7.1
+                } ,
+                {
+                    "label" : "Iceland" ,
+                    "value" : 5.8
+                } ,
+                {
+                    "label" : "Denmark" ,
+                    "value" : 3.7
+                } ,
+                {
+                    "label" : "Finland" ,
+                    "value" : 3.6
+                }
+            ]
+        }
+    ];
+
+    nv.addGraph(function() {
+        var chart = nv.models.discreteBarChart()
+            .x(function(d) { return d.label })
+            .y(function(d) { return d.value })
+            .staggerLabels(true)
+            //.staggerLabels(historicalBarChart[0].values.length > 8)
+            .showValues(true)
+            .duration(250)
+            ;
+
+        d3.select('#chart2 svg')
+            .datum(historicalBarChart2)
+            .call(chart);
+
+        nv.utils.windowResize(chart.update);
+        return chart;
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="script/nv.d3.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+    <script src="script/nv.d3.js"></script>
+
+    <style>
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+        }
+        html, body, #chart1, svg {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+
+
+
+<div class = "container" style = "margin: 50 150 50 150;">
+
+
+<div id="chart1" style = "height: 500px; width:100%;">
+    <svg></svg>
+</div>
+
+</div>
+<script>
+
+    historicalBarChart1 = [
+        {
+            key: "Children in Single Parent Families",
+            values: [
+                {
+                    "label" : "Latvia" ,
+                    "value" : 27.8
+                } ,
+                {
+                    "label" : "Lithuania" ,
+                    "value" : 26.9
+                } ,
+                {
+                    "label" : "US" ,
+                    "value" : 26.6
+                } ,
+                {
+                    "label" : "Belgium" ,
+                    "value" : 24.9
+                } ,
+                {
+                    "label" : "New Zealand" ,
+                    "value" : 23.7
+                } ,
+                {
+                    "label" : "France" ,
+                    "value" : 22.5
+                } ,
+                {
+                    "label" : "Chile" ,
+                    "value" : 22.0
+                } ,
+                {
+                    "label" : "Malta" ,
+                    "value" : 21.8
+                } ,
+                {
+                    "label" : "UK" ,
+                    "value" : 21.6
+                } ,
+                {
+                    "label" : "Ireland" ,
+                    "value" : 21.2
+                } ,
+                {
+                    "label" : "Hungary" ,
+                    "value" : 20.8
+                } ,
+                {
+                    "label" : "Sweden" ,
+                    "value" : 20.7
+                } ,
+                {
+                    "label" : "Denmark" ,
+                    "value" : 20.6
+                } ,
+                {
+                    "label" : "Portugal" ,
+                    "value" : 20
+                } ,
+                {
+                    "label" : "Norway" ,
+                    "value" : 19.4
+                } ,
+                {
+                    "label" : "Canada" ,
+                    "value" : 19.2
+                } ,
+                {
+                    "label" : "Mexico" ,
+                    "value" : 18.1
+                } ,
+                {
+                    "label" : "Australia" ,
+                    "value" : 18
+                } ,
+                {
+                    "label" : "Iceland" ,
+                    "value" : 17.9
+                } ,
+                {
+                    "label" : "Spain" ,
+                    "value" : 15.6
+                } ,
+                {
+                    "label" : "Bulgaria" ,
+                    "value" : 15.2
+                } ,
+                {
+                    "label" : "Germany" ,
+                    "value" : 14.9
+                } ,
+                {
+                    "label" : "Italy" ,
+                    "value" : 14.7
+                } ,
+                { 
+                    "label" : "Estonia" ,
+                    "value" : 14.6
+                } ,
+                {
+                    "label" : "Finland" ,
+                    "value" : 14.5
+                } ,
+                {
+                    "label" : "Luxembourg" ,
+                    "value" : 14.1
+                } ,
+                {
+                    "label" : "Slovak Republic" ,
+                    "value" : 13.9
+                } ,
+                {
+                    "label" : "Czech Republic" ,
+                    "value" : 13.6
+                } ,
+                {
+                    "label" : "Cyprus" ,
+                    "value" : 13.6
+                } ,
+                {
+                    "label" : "Netherlands" ,
+                    "value" : 12.4
+                } ,
+                {
+                    "label" : "Slovenia" ,
+                    "value" : 12.2
+                } ,
+                {
+                    "label" : "Japan" ,
+                    "value" : 12.2
+                } ,
+                {
+                    "label" : "Austria" ,
+                    "value" : 11.4
+                } ,
+                {
+                    "label" : "Romania" ,
+                    "value" : 11
+                } ,
+                {
+                    "label" : "Croatia" ,
+                    "value" : 9.5
+                } ,
+                {
+                    "label" : "Poland" ,
+                    "value" : 9
+                } ,
+                {
+                    "label" : "Greece" ,
+                    "value" : 7.4
+                } ,
+                {
+                    "label" : "Switzerland" ,
+                    "value" : 7.1
+                } ,
+                {
+                    "label" : "Turkey" ,
+                    "value" : 5.8
+                }
+            ]
+        }
+    ];
+
+    nv.addGraph(function() {
+        var chart = nv.models.discreteBarChart()
+            .x(function(d) { return d.label })
+            .y(function(d) { return d.value })
+            .staggerLabels(true)
+            //.staggerLabels(historicalBarChart[0].values.length > 8)
+            .showValues(true)
+            .duration(250)
+            ;
+
+        d3.select('#chart1 svg')
+            .datum(historicalBarChart1)
+            .call(chart);
+
+        nv.utils.windowResize(chart.update);
+        return chart;
+    });
+
+
+</script>
+</body>
+</html>
